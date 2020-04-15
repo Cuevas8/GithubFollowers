@@ -33,6 +33,9 @@ class SearchVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        userNameTextField.text = ""
+        userNameTextField.clearButtonMode = .whileEditing
+        //view.endEditing(true)
     }
     
     func createDismissKeyboardTapGesture() {
@@ -50,8 +53,8 @@ class SearchVC: UIViewController {
         let followerListVC = FollowerListVC()
         followerListVC.userName = userNameTextField.text
         followerListVC.title = userNameTextField.text
+        self.view.endEditing(true)
         navigationController?.pushViewController(followerListVC, animated: true)
-        
     }
     
     func configureLogoImageView() {
