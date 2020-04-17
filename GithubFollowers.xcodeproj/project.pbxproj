@@ -10,6 +10,7 @@
 		933C30CB2446871100267BBB /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C30CA2446871100267BBB /* Follower.swift */; };
 		933C30CD244687DD00267BBB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C30CC244687DD00267BBB /* User.swift */; };
 		933C30D024468F5200267BBB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C30CF24468F5200267BBB /* NetworkManager.swift */; };
+		933C30D32446D52900267BBB /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C30D22446D52900267BBB /* ErrorMessage.swift */; };
 		937248CF24429370000AAEC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937248CE24429370000AAEC5 /* AppDelegate.swift */; };
 		937248D124429370000AAEC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937248D024429370000AAEC5 /* SceneDelegate.swift */; };
 		937248D824429373000AAEC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 937248D724429373000AAEC5 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		933C30CA2446871100267BBB /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		933C30CC244687DD00267BBB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		933C30CF24468F5200267BBB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		933C30D22446D52900267BBB /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		937248CB24429370000AAEC5 /* GithubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		937248CE24429370000AAEC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		937248D024429370000AAEC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		933C30D12446D50B00267BBB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				933C30D22446D52900267BBB /* ErrorMessage.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		937248C22442936F000AAEC5 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +103,7 @@
 		937248CD24429370000AAEC5 /* GithubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				933C30D12446D50B00267BBB /* Utilities */,
 				933C30CE24468F4700267BBB /* Managers */,
 				933C30C92446870500267BBB /* Model */,
 				937248DC24429373000AAEC5 /* Info.plist */,
@@ -222,6 +233,7 @@
 				937248E72443AEF4000AAEC5 /* GFButton.swift in Sources */,
 				937248CF24429370000AAEC5 /* AppDelegate.swift in Sources */,
 				937248F124451635000AAEC5 /* GFAlertVC.swift in Sources */,
+				933C30D32446D52900267BBB /* ErrorMessage.swift in Sources */,
 				937248D124429370000AAEC5 /* SceneDelegate.swift in Sources */,
 				933C30CB2446871100267BBB /* Follower.swift in Sources */,
 				937248ED24451415000AAEC5 /* GFTitleLabel.swift in Sources */,
