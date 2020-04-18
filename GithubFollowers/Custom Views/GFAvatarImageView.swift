@@ -14,7 +14,7 @@ class GFAvatarImageView: UIImageView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        configure()
     }
     
     required init?(coder: NSCoder) {
@@ -27,6 +27,5 @@ class GFAvatarImageView: UIImageView {
         clipsToBounds = true
         image = placeholderImage
         translatesAutoresizingMaskIntoConstraints = false
-        
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		930DBCB3244933F0008BC837 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930DBCB2244933F0008BC837 /* FollowerCell.swift */; };
 		930DBCB5244934D0008BC837 /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930DBCB4244934D0008BC837 /* GFAvatarImageView.swift */; };
+		930DBCB7244A557E008BC837 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930DBCB6244A557E008BC837 /* UIHelper.swift */; };
 		933C30CB2446871100267BBB /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C30CA2446871100267BBB /* Follower.swift */; };
 		933C30CD244687DD00267BBB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C30CC244687DD00267BBB /* User.swift */; };
 		933C30D024468F5200267BBB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C30CF24468F5200267BBB /* NetworkManager.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		930DBCB2244933F0008BC837 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		930DBCB4244934D0008BC837 /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
+		930DBCB6244A557E008BC837 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		933C30CA2446871100267BBB /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		933C30CC244687DD00267BBB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		933C30CF24468F5200267BBB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				933C30D22446D52900267BBB /* ErrorMessage.swift */,
+				930DBCB6244A557E008BC837 /* UIHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				937248E52442A176000AAEC5 /* FavoriteListVC.swift in Sources */,
 				937248F324451D03000AAEC5 /* UIViewController+Ext.swift in Sources */,
 				937248E72443AEF4000AAEC5 /* GFButton.swift in Sources */,
+				930DBCB7244A557E008BC837 /* UIHelper.swift in Sources */,
 				930DBCB5244934D0008BC837 /* GFAvatarImageView.swift in Sources */,
 				937248CF24429370000AAEC5 /* AppDelegate.swift in Sources */,
 				937248F124451635000AAEC5 /* GFAlertVC.swift in Sources */,
