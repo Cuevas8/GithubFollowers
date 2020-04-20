@@ -1,10 +1,12 @@
 //
-//  ErrorMessage.swift
+//  GFError.swift
 //  GithubFollowers
 //
-//  Created by Bryan Cuevas on 4/14/20.
+//  Created by Bryan Cuevas on 4/19/20.
 //  Copyright © 2020 bryanCuevas. All rights reserved.
 //
+
+import Foundation
 
 import Foundation
 
