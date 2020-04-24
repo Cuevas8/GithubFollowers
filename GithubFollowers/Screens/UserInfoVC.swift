@@ -11,6 +11,11 @@ import UIKit
 class UserInfoVC: UIViewController {
     
     let headerView = UIView()
+    let itemViewOne = UIView()
+    let itemViewTwo = UIView()
+    var itemViews: [UIView] = []
+    let dateLabel = GFBodyLabel(textAlignment: .center)
+    
     
     
     var userName: String!
@@ -18,43 +23,70 @@ class UserInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemTeal
+       
+        configureViewController()
+        layoutUI()
+        getUserInfo()
+        
+        
+    }
+    
+    func configureViewController() {
+        view.backgroundColor = .systemBackground
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
         navigationItem.rightBarButtonItem = doneButton
-        
-        layoutUI()
-        
+    }
+    
+    func getUserInfo() {
         NetworkManager.shared.getUserInfo(for: userName) {[weak self] (result) in
-            
             guard let self = self else { return }
-            
             switch result {
             case .success(let user):
                 print("User: \(user)")
-                
                 DispatchQueue.main.async {
                     self.addChildVC(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
+                    self.addChildVC(childVC: GFRepoItemVC(user: user), to: self.itemViewOne)
+                    self.addChildVC(childVC: GFFollowerItemVC(user: user), to: self.itemViewTwo)
+                    self.dateLabel.text = "Github since \(user.createdAt.convertToDisplayFormat())"
                 }
-                
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
         }
     }
     
+    
+    
     func layoutUI() {
-        view.addSubview(headerView)
         
-        headerView.backgroundColor = .systemPink
-        headerView.translatesAutoresizingMaskIntoConstraints = false
+        let padding: CGFloat = 20
+        let itemHeight: CGFloat = 140
+        itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
         
+        for itemView in itemViews {
+            view.addSubview(itemView)
+            itemView.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                 itemView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+                 itemView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -padding),
+            ])
+        }
+        
+        headerView.backgroundColor = .systemBackground
+  
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 180)
-        
-        
+            headerView.heightAnchor.constraint(equalToConstant: 180),
+            
+            itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
+            itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
+            
+            itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
+            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
+            
+            dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
+            dateLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
     
