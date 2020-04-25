@@ -12,6 +12,7 @@
 		930DBCB7244A557E008BC837 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930DBCB6244A557E008BC837 /* UIHelper.swift */; };
 		933AC1522452C5C3007B38B5 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933AC1512452C5C3007B38B5 /* Date+Ext.swift */; };
 		933AC1542452C5E0007B38B5 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933AC1532452C5E0007B38B5 /* String+Ext.swift */; };
+		933AC1582453A679007B38B5 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933AC1572453A679007B38B5 /* PersistenceManager.swift */; };
 		933C30CB2446871100267BBB /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C30CA2446871100267BBB /* Follower.swift */; };
 		933C30CD244687DD00267BBB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C30CC244687DD00267BBB /* User.swift */; };
 		933C30D024468F5200267BBB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C30CF24468F5200267BBB /* NetworkManager.swift */; };
@@ -46,6 +47,7 @@
 		930DBCB6244A557E008BC837 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		933AC1512452C5C3007B38B5 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		933AC1532452C5E0007B38B5 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		933AC1572453A679007B38B5 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		933C30CA2446871100267BBB /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		933C30CC244687DD00267BBB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		933C30CF24468F5200267BBB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				933C30CF24468F5200267BBB /* NetworkManager.swift */,
+				933AC1572453A679007B38B5 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				933C30CB2446871100267BBB /* Follower.swift in Sources */,
 				937248ED24451415000AAEC5 /* GFTitleLabel.swift in Sources */,
 				933AC1522452C5C3007B38B5 /* Date+Ext.swift in Sources */,
+				933AC1582453A679007B38B5 /* PersistenceManager.swift in Sources */,
 				93475A54244E31D700325371 /* GFSecondaryTitleLabel.swift in Sources */,
 				93475A4C244BAD6600325371 /* GFEmptyStateView.swift in Sources */,
 				933C30D024468F5200267BBB /* NetworkManager.swift in Sources */,
