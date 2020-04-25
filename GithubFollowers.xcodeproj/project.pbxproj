@@ -39,6 +39,7 @@
 		937248EF2445157F000AAEC5 /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937248EE2445157F000AAEC5 /* GFBodyLabel.swift */; };
 		937248F124451635000AAEC5 /* GFAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937248F024451635000AAEC5 /* GFAlertVC.swift */; };
 		937248F324451D03000AAEC5 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937248F224451D03000AAEC5 /* UIViewController+Ext.swift */; };
+		93C3F5D32454DA010084442E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3F5D22454DA010084442E /* FavoriteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		937248EE2445157F000AAEC5 /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
 		937248F024451635000AAEC5 /* GFAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertVC.swift; sourceTree = "<group>"; };
 		937248F224451D03000AAEC5 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		93C3F5D22454DA010084442E /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				930DBCB2244933F0008BC837 /* FollowerCell.swift */,
+				93C3F5D22454DA010084442E /* FavoriteCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				937248F124451635000AAEC5 /* GFAlertVC.swift in Sources */,
 				93475A5E245261D300325371 /* GFFollowerItemVC.swift in Sources */,
 				93475A582452329900325371 /* GFItemInfoView.swift in Sources */,
+				93C3F5D32454DA010084442E /* FavoriteCell.swift in Sources */,
 				930DBCB3244933F0008BC837 /* FollowerCell.swift in Sources */,
 				937248D124429370000AAEC5 /* SceneDelegate.swift in Sources */,
 				93475A52244E315600325371 /* GFUserInfoHeaderVC.swift in Sources */,
