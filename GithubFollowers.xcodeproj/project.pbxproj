@@ -191,6 +191,13 @@
 			path = ItemInfoVCs;
 			sourceTree = "<group>";
 		};
+		936EFC8E2454DD4A0071FD0A /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
 		937248C22442936F000AAEC5 = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +243,7 @@
 		937248F524452298000AAEC5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				936EFC8E2454DD4A0071FD0A /* TabBarControllers */,
 				93475A4A244BAD2B00325371 /* Labels */,
 				93475A49244BAD1700325371 /* ViewControllers */,
 				93475A48244BAD1000325371 /* ImageViews */,
