@@ -26,6 +26,7 @@ class FollowerListVC: GFDataLoadingVC {
     var page = 1
     var hasMoreFollowers = true
     var isSearching = false
+    var isLoadingMoreFollowers = false
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
@@ -49,7 +50,6 @@ class FollowerListVC: GFDataLoadingVC {
         configureCollectionView()
         getFollowers(userName: userName, page: page)
         configureDataSource()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +68,8 @@ class FollowerListVC: GFDataLoadingVC {
     func getFollowers(userName: String, page: Int) {
         
         showLoadingView()
+        isLoadingMoreFollowers = true
+        
         NetworkManager.shared.getFollowers(for: userName, page: page) { [weak self] (result) in
             
             guard let self = self else { return }
@@ -96,6 +98,7 @@ class FollowerListVC: GFDataLoadingVC {
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
             }
+            self.isLoadingMoreFollowers = false
         }
     }
     
@@ -110,7 +113,6 @@ class FollowerListVC: GFDataLoadingVC {
     func configureSearchController() {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search for a username."
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
@@ -153,16 +155,12 @@ class FollowerListVC: GFDataLoadingVC {
                     
                     self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
                 }
-                
-                
+ 
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
-            
         }
-        
     }
-    
 }
 
 extension FollowerListVC: UICollectionViewDelegate {
@@ -172,7 +170,7 @@ extension FollowerListVC: UICollectionViewDelegate {
         let heightOfScrollView = scrollView.frame.size.height
         
         if offsetY > contentHeight - heightOfScrollView {
-            guard hasMoreFollowers else { return }
+            guard hasMoreFollowers, !isLoadingMoreFollowers else { return }
             
             page += 1
             
@@ -188,9 +186,6 @@ extension FollowerListVC: UICollectionViewDelegate {
         userInfoVC.userName = follower.login
         userInfoVC.delegate = self
         let navController = UINavigationController(rootViewController: userInfoVC)
-    
-
-        
         
         DispatchQueue.main.async {
             self.present(navController, animated: true, completion: nil)
@@ -198,21 +193,21 @@ extension FollowerListVC: UICollectionViewDelegate {
     }
 }
 
-extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
+extension FollowerListVC: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+            filteredFollowers.removeAll()
+            updateData(on: followers)
+            isSearching = false
+            return
+        }
+        
         isSearching = true
         filteredFollowers = followers.filter{ $0.login.lowercased().contains(filter.lowercased()) }
         updateData(on: filteredFollowers)
     }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearching = false
-        updateData(on: self.followers)
-    }
-    
-    
+
 }
 
 
@@ -220,13 +215,12 @@ extension FollowerListVC: FollowerListVCDelegate {
     func didRequestFollowers(for username: String) {
         self.userName = username
         title = username
+        
         page = 1
         followers.removeAll()
         filteredFollowers.removeAll()
-        
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         getFollowers(userName: username, page: page)
-        updateData(on: followers)
+      //  updateData(on: followers)
     }
-    
-    
 }
