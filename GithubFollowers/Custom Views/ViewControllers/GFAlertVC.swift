@@ -38,6 +38,7 @@ class GFAlertVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        view.addSubViews(containerView, titleLabel, actionButton, messageLabel)
         configureContainerView()
         configureTitleLabel()
         configureActionButton()
@@ -45,8 +46,6 @@ class GFAlertVC: UIViewController {
     }
     
     func configureContainerView() {
-        view.addSubview(containerView)
-        
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -58,7 +57,6 @@ class GFAlertVC: UIViewController {
     }
     
     func configureTitleLabel() {
-        containerView.addSubview(titleLabel)
         titleLabel.text = alertTitle ?? "Something went wrong"
         
         NSLayoutConstraint.activate([
@@ -71,12 +69,10 @@ class GFAlertVC: UIViewController {
     }
     
     func configureActionButton() {
-        containerView.addSubview(actionButton)
         actionButton.setTitle(buttonTitle ?? "Ok", for: .normal)
         actionButton.addTarget(self, action: #selector(dismissGFAlertVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            
             actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -padding),
             actionButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
             actionButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
@@ -85,7 +81,6 @@ class GFAlertVC: UIViewController {
     }
     
     func configureMessageLabel() {
-        containerView.addSubview(messageLabel)
         messageLabel.text = message ?? "Unable to complete request"
         messageLabel.numberOfLines = 4
         
@@ -97,11 +92,7 @@ class GFAlertVC: UIViewController {
         ])
     }
     
-    
-    
     @objc func dismissGFAlertVC() {
         dismiss(animated: true, completion: nil)
     }
-    
-
 }
