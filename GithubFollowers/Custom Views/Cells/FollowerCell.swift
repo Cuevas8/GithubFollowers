@@ -9,8 +9,8 @@
 import UIKit
 
 class FollowerCell: UICollectionViewCell {
-    static let resuseID = "FollowerCell"
     
+    static let resuseID = "FollowerCell"
     let avatarImageView = GFAvatarImageView(frame: .zero)
     let userNameLabel = GFTitleLabel(textAlignment: .center, fontSize: 16)
     
@@ -25,12 +25,7 @@ class FollowerCell: UICollectionViewCell {
     
     func set(follower: Follower) {
         userNameLabel.text = follower.login
-        NetworkManager.shared.downloadImage(from: follower.avatarUrl) { [weak self] (image) in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.avatarImageView.image = image
-            }
-        }
+        avatarImageView.downloadAvatarImage(fromURL: follower.avatarUrl)
     }
     
     private func configure() {
@@ -48,9 +43,6 @@ class FollowerCell: UICollectionViewCell {
             userNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             userNameLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
-        
     }
-    
-    
     
 }
